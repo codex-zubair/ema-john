@@ -1,0 +1,15 @@
+.footer
+{
+    margin-top: 2rem;
+    background-color:#2C2C2C;
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer h5
+{
+    color: white;
+    font-weight: 400;
+}

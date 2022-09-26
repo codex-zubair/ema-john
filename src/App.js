@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Shop from './components/Shop/Shop';
 
@@ -12,6 +13,11 @@ function App() {
       {/* Main Section Start */}
       <Shop></Shop>
       {/* Main Section End */}
+
+
+      {/* Footer Section Start */}
+      <Footer></Footer>
+      {/* Footer Section End */}
 
     </div>
   );

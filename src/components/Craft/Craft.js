@@ -4,7 +4,7 @@ import './Craft.css';
 const Craft = () => {
     return (
         <div className='craft'>
-            <h2 style={{fontSize:'25px'}}>Order Summary</h2>
+            <h2>Order Summary</h2>
             <p>Total Price: <span>$1000</span></p>
             <p>Total Shipping Charges: <span>$10</span></p>
             <p>Tax: <span>$114</span></p>
