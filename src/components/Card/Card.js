@@ -5,14 +5,29 @@ const Card = (props) => {
 
     const { img, name, price, seller, ratings } = props.product;
 
+
+
     return (
         <div className='card'>
-            <img style={{ height: '286px', width: '286px' }} src={img} alt='img' />
-            <h3 style={{ fontSize: '20px' }}>{name}</h3>
-            <h4 style={{ fontSize: '16px' }}>price: ${price}</h4>
-            <p style={{ fontSize: '12px' }}>Manufacturer : {seller}</p>
-            <p style={{ fontSize: '12px' }}>Rating : {ratings} start</p>
-            <button style={{ width: '100%', backgroundColor: 'rgba(255, 224, 179, 1)' }}>Add to Cart icon</button>
+            <img style={{ height: '286px', width: '286px', paddingLeft: '7px', paddingRight: '7px', paddingTop: '8px', borderRadius: '8px' }} src={img} alt='img' />
+            {/* Card Info Div Start */}
+            <div className='card-info'>
+                {/* Product Info div Start */}
+                <div>
+                <h3 style={{ fontSize: '21px', marginTop:'12px' , marginBottom:'0px'}}>{name.slice(0,20)}</h3>
+                <h4 style={{ fontSize: '17px' , marginTop:'11px', marginBottom:'0px'}}>price: ${price}</h4>
+                </div>
+                {/* Product Info div End */}
+
+                {/* Seller Info Div Start */}
+                <div style={{marginTop:'22px'}}>
+                    <p style={{ fontSize: '12px', fontWeight:'500'}}>Manufacturer : {seller}</p>
+                    <p style={{ fontSize: '12px', fontWeight:'500'}}>Rating : {ratings} starts</p>
+                </div>
+                {/* Seller Info Div End */}
+            </div>
+            {/* Card Info Div End */}
+            <button className='card-button'>Add to Cart icon</button>
         </div>
     );
 };

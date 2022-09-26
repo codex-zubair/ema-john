@@ -1,7 +1,49 @@
-.card
-{
-    background-color: beige;
-    border: 2px solid rgba(149, 160, 167, 1);
+.card {
+
+
+    box-sizing: border-box;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: -0.2%;
+
+
+    border: 1px solid #95A0A7;
+    border-radius: 8px;
     width: 300px;
     height: 508px;
+    position: relative;
+    border-bottom: none;
+}
+
+
+
+.card-info
+{
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+
+.card-button {
+
+
+
+    height: 48px;
+    width: 300px;
+    left: 0px;
+    top: 461px;
+
+
+    box-sizing: border-box;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 90.75%;
+    bottom: -0.2%;
+
+
+    background-color: #FFE0B3;
+    border: 1px solid #95A0A7;
+    border-radius: 0px 0px 8px 8px;
 }
