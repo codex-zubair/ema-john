@@ -5,9 +5,10 @@ nav
     display: flex;
     align-items:center;
     justify-content: space-between;
-    padding: 0px 100px;
+    padding-left: 112px;
+    padding-right: 97px;
 }
-
+ 
 .nav-menu-link
 {
     color: rgba(255, 255, 255, 1);
