@@ -11,7 +11,9 @@ function App() {
       {/* Header Section End */}
 
       {/* Main Section Start */}
+      <main className='main-section'>
       <Shop></Shop>
+      </main>
       {/* Main Section End */}
 
 

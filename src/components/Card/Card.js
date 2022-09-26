@@ -9,7 +9,8 @@ const Card = (props) => {
 
     return (
         <div className='card'>
-            <img style={{ height: '286px', width: '286px', paddingLeft: '7px', paddingRight: '7px', paddingTop: '8px', borderRadius: '8px' }} src={img} alt='img' />
+            <img onError={'https://fixmysite.com/site/wp-content/uploads/2019/04/database-error.jpg'}
+             style={{ height: '286px', width: '286px', paddingLeft: '7px', paddingRight: '7px', paddingTop: '8px', borderRadius: '8px' }} src={img} alt='img' />
             {/* Card Info Div Start */}
             <div className='card-info'>
                 {/* Product Info div Start */}
