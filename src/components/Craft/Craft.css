@@ -2,3 +2,19 @@
 {
     background-color:'rgba(255, 153, 0, 0.3)';
 }
+
+.craft p 
+{
+    font-size: 17px;
+}
+
+
+.button-div button
+{
+    display: block;
+    width: 232px;
+    height: 48px;
+    margin-top: 16px;
+    border-radius: 4px;
+    border: none;
+}

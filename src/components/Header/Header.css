@@ -6,6 +6,7 @@ nav {
     justify-content: space-between;
     padding-left: 112px;
     padding-right: 97px;
+    position: relative;
 }
 
 .nav-menu-link {
@@ -28,6 +29,22 @@ nav {
 
 @media screen and (max-width: 600px) {
     /* TODO Fix Header. */
-  
+
+    .nav-menu-link:hover {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        right: 3%;
+        top: 40%;
+        background-color: rgba(28, 43, 53, 1);
+    }
+
+    .nav-menu-link a {
+
+        display: flex;
+        flex-direction: column;
+
+
+    }
 
 }
