@@ -6,6 +6,7 @@ const Craft = (props) => {
         <div className='craft'>
             <h2 style={{textAlign:'center'}}>Order Summary</h2>
             <div style={{marginLeft:'1rem'}}>
+            <p>Selected Items: {props.item}</p>
             <p>Total Price: <span>${props.price}</span></p>
             <p>Total Shipping Charges: <span>${props.shipping}</span></p>
             <p>Tax: <span>${props.tax}</span></p>
