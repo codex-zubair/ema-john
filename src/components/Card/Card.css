@@ -47,3 +47,8 @@
     border: 1px solid #95A0A7;
     border-radius: 0px 0px 8px 8px;
 }
+
+.card-button:hover
+{
+    background-color: #FF9900;
+}
