@@ -27,7 +27,7 @@ const Shop = () => {
 
             </div>
 
-            <div className='craft-div'>
+            <div style={{backgroundColor:'rgba(255, 153, 0, 0.3)'}} className='craft-div'>
                 <div>
                     <h2>Order Summary</h2>
                     <p>Total Price <span>$1000</span></p>

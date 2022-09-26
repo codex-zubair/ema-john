@@ -7,7 +7,7 @@ const Card = (props) => {
 
     return (
         <div className='card'>
-            <img style={{ height: '300px', width: '300px' }} src={img} alt='img' />
+            <img style={{ height: '286px', width: '286px' }} src={img} alt='img' />
             <h3 style={{ fontSize: '20px' }}>{name}</h3>
             <h4 style={{ fontSize: '16px' }}>price: ${price}</h4>
             <p style={{ fontSize: '12px' }}>Manufacturer : {seller}</p>

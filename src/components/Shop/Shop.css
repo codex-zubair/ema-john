@@ -7,12 +7,13 @@
 
 .card-div {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
+    grid-template-columns: 300px 300px 300px;
+    gap: 45px;
     background-color: rgb(66, 89, 97);
     margin-top: 200px;
-    padding-left: 140px;
-    padding-right: 80px;
+    padding-left: 104px;
+    padding-right:82px;
+ 
     
 
 
