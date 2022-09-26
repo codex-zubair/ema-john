@@ -3,8 +3,8 @@ import './Card.css';
 
 const Card = (props) => {
 
-    const { img, name, price, seller, ratings } = props.product;
-
+    const {img, name, price, seller, ratings } = props.product;
+        const {addItemHandler} = props;
 
 
     return (
@@ -28,7 +28,7 @@ const Card = (props) => {
                 {/* Seller Info Div End */}
             </div>
             {/* Card Info Div End */}
-            <button className='card-button'>Add to Cart icon</button>
+            <button onClick={()=> addItemHandler(props.product)} className='card-button'>Add to Cart icon</button>
         </div>
     );
 };

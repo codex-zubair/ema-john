@@ -1,15 +1,15 @@
 import React from 'react';
 import './Craft.css';
 
-const Craft = () => {
+const Craft = (props) => {
     return (
         <div className='craft'>
             <h2 style={{textAlign:'center'}}>Order Summary</h2>
             <div style={{marginLeft:'1rem'}}>
-            <p>Total Price: <span>$1000</span></p>
-            <p>Total Shipping Charges: <span>$10</span></p>
-            <p>Tax: <span>$114</span></p>
-            <h3 style={{fontSize:'21px'}}>Grand Total: <span>$1500</span></h3>
+            <p>Total Price: <span>${props.price}</span></p>
+            <p>Total Shipping Charges: <span>${props.shipping}</span></p>
+            <p>Tax: <span>${props.tax}</span></p>
+            <h3 style={{fontSize:'21px'}}>Grand Total: <span>${props.total}</span></h3>
             </div>
             {/* Button Div Start */}
             <div className='button-div'>

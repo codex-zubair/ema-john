@@ -19,18 +19,38 @@ const Shop = () => {
     //! Loading Product Data End
 
 
+    //! Added Item List Start
+    const [addedItem, setAddedItem] = useState([]);
+    //! Added Item List End
+
+
+    const {name, price, shipping} = addedItem;
+
+    // !Add item Function Start
+    const addItemHandler = (props)=> {
+        setAddedItem(props)
+    }
+    // !Add item Function End
+
+
+    // Total Price
+    const total = price + shipping;
+    const tax = (total * 0.1).toFixed(2);
+    
+
 
     return (
         <main className='shop-main'>
             <div className='card-div'>
 
-                {products.map(product => <Card key={product.id} product={product}></Card>)}
+                {products.map(product => <Card addItemHandler = {addItemHandler} key={product.id} product={product}></Card>)}
 
             </div>
 
             <div className='craft-div'>
 
-                <Craft></Craft>
+                <Craft tax= {tax} total = {total} name = {name} price = {price} shipping = {shipping}></Craft>
+               
 
             </div>
         </main>
