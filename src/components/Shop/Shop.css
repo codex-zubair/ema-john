@@ -1,6 +1,6 @@
 .shop-main {
     display: grid;
-    grid-template-columns: calc(1440px - 264px) 264px;
+    grid-template-columns: calc(1423px - 264px) 264px;
 }
 
 
@@ -15,6 +15,15 @@
  
     
 
+
+}
+
+
+.craft-div
+{
+    height: 100%;
+    margin-top: 0%;
+    padding-top: 0%;
 
 }
 
@@ -35,6 +44,14 @@
         margin-left: 90px;
         margin-right: 90px;
 
+    }
+
+    .craft-div
+    {
+        background-color: rgba(255, 153, 0, 0);
+        height: auto;
+        position: relative;
+       
     }
 
 }

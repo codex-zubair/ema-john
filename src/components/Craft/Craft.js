@@ -4,11 +4,13 @@ import './Craft.css';
 const Craft = () => {
     return (
         <div className='craft'>
-            <h2>Order Summary</h2>
+            <h2 style={{textAlign:'center'}}>Order Summary</h2>
+            <div style={{marginLeft:'1rem'}}>
             <p>Total Price: <span>$1000</span></p>
             <p>Total Shipping Charges: <span>$10</span></p>
             <p>Tax: <span>$114</span></p>
             <h3 style={{fontSize:'21px'}}>Grand Total: <span>$1500</span></h3>
+            </div>
             {/* Button Div Start */}
             <div className='button-div'>
             <button style={{backgroundColor:'rgba(255, 48, 48, 1)'}}>Clear Craft <span>icon</span></button>
