@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Card/Card';
+import Craft from '../Craft/Craft';
 import './Shop.css';
 
 const Shop = () => {
@@ -27,16 +28,9 @@ const Shop = () => {
 
             </div>
 
-            <div style={{backgroundColor:'rgba(255, 153, 0, 0.3)'}} className='craft-div'>
-                <div>
-                    <h2>Order Summary</h2>
-                    <p>Total Price <span>$1000</span></p>
-                    <p>Total Shipping Charges <span>$10</span></p>
-                    <p>Tax <span>$114</span></p>
-                    <h3>Grand Total: <span>$1500</span></h3>
-                    <button>Clear Craft <span>icon</span></button>
-                    <button>Review Order <span>icon</span></button>
-                </div>
+            <div className='craft-div'>
+
+                <Craft></Craft>
 
             </div>
         </main>

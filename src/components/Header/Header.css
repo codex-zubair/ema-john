@@ -1,26 +1,33 @@
-nav
-{
-    background-color:rgba(28, 43, 53, 1);
+nav {
+    background-color: rgba(28, 43, 53, 1);
     height: 80px;
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
     padding-left: 112px;
     padding-right: 97px;
 }
- 
-.nav-menu-link
-{
+
+.nav-menu-link {
     color: rgba(255, 255, 255, 1);
     display: flex;
     gap: 32px;
 }
 
-.nav-menu-link a
-{
+.nav-menu-link a {
     font-size: 17px;
 }
-.nav-menu-link a:hover
-{
+
+.nav-menu-link a:hover {
     color: #FF9900;
+}
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    /* TODO Fix Header. */
+  
+
 }

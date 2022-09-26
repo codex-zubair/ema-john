@@ -22,8 +22,9 @@
 @media screen and (max-width: 600px) {
 
     .shop-main {
-        display: flex;
-
+        display: flex; 
+        flex-direction: column-reverse;
+        align-items: center;
     }
 
     .card-div {
