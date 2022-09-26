@@ -6,10 +6,11 @@ const Card = (props) => {
     const {img, name, price, seller, ratings } = props.product;
         const {addItemHandler} = props;
 
+        
 
     return (
         <div className='card'>
-            <img onError={'https://fixmysite.com/site/wp-content/uploads/2019/04/database-error.jpg'}
+            <img onError={(error)=>{error.target.src="https://cdn.questionpro.com/userimages/site_media/no-image.png"}}
              style={{ height: '286px', width: '286px', paddingLeft: '7px', paddingRight: '7px', paddingTop: '8px', borderRadius: '8px' }} src={img} alt='img' />
             {/* Card Info Div Start */}
             <div className='card-info'>
