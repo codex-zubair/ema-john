@@ -1,6 +1,6 @@
 .shop-main {
     display: grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: calc(1440px - 264px) 264px;
 }
 
 
