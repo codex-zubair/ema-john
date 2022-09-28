@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { storeIDLocalDB } from '../../utilities/storeIDLocalDB';
+import { totalShippingCharge, totalSum } from '../../utilities/calculation';
+
+
 import Card from '../Card/Card';
 import Craft from '../Craft/Craft';
 import './Shop.css';
@@ -8,7 +11,7 @@ const Shop = () => {
 
     //! Loading Product Data Start
     const [products, setProduct] = useState([]);
-    console.log(products);
+
 
 
     useEffect(() => {
@@ -25,25 +28,57 @@ const Shop = () => {
     //! Added Item List End
 
 
+
+    // Destructuring...
     const { name, price, shipping } = addedItem;
 
 
 
-    // !Selected Item List Start
-    const [SelectedItem, setSelectedItem] = useState([]);
-    // !Selected Item List End
+
+    
 
 
+
+
+    // !Selected List Start
+    const [selectedList, setSelectedList] = useState([]);
+    // !Selected List End
+
+   
+
+    // Total Selected List
+    const TotalSelectedItem = selectedList.length;
+
+
+    // Total price
+    const totalPrice = totalSum(selectedList);
+
+
+    // Total Shipping Charge.
+    const totalShippingCost = totalShippingCharge(selectedList);
+  
+
+    // Total Tax
+    const total = totalPrice + totalShippingCost;
+    const tax = (total * 0.1).toFixed(2);
 
 
 
     // !Add item Function Start
     const addItemHandler = (props) => {
-        setAddedItem(props)
+        
+        // List Of Selected item...
+        setSelectedList([...selectedList,props]);
+
+
         // Calling it From Utilities...
         storeIDLocalDB(props.id);
 
-        setSelectedItem(+SelectedItem + 1);
+
+
+        // TODO Remove IT
+        // !Missing Part
+        setAddedItem(props)
 
     }
     // !Add item Function End
@@ -51,13 +86,6 @@ const Shop = () => {
 
 
 
-
-
-
-
-    // Total Price
-    const total = price + shipping;
-    const tax = (total * 0.1).toFixed(2);
 
 
 
@@ -71,7 +99,7 @@ const Shop = () => {
 
             <div className='craft-div'>
 
-                <Craft item={SelectedItem} tax={tax} total={total} name={name} price={price} shipping={shipping}></Craft>
+                <Craft item={TotalSelectedItem} tax={tax} total={total} name={name} price={totalPrice} shipping={totalShippingCost}></Craft>
 
 
             </div>

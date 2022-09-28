@@ -20,7 +20,7 @@ const Card = (props) => {
                 <h4 style={{ fontSize: '17px' , marginTop:'11px', marginBottom:'0px'}}>price: ${price}</h4>
                 </div>
                 {/* Product Info div End */}
-
+                
                 {/* Seller Info Div Start */}
                 <div style={{marginTop:'22px'}}>
                     <p style={{ fontSize: '12px', fontWeight:'500'}}>Manufacturer : {seller}</p>
