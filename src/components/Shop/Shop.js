@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { storeIDLocalDB } from '../../utilities/storeIDLocalDB';
-import { totalShippingCharge, totalSum } from '../../utilities/calculation';
+import { totalQuantity, totalShippingCharge, totalSum } from '../../utilities/calculation';
 
 
 import Card from '../Card/Card';
 import Craft from '../Craft/Craft';
 import './Shop.css';
-import { getDataFromDB } from '../../utilities/getDataFromDB';
 
 const Shop = () => {
 
@@ -18,16 +17,20 @@ const Shop = () => {
     useEffect(() => {
         fetch('products.json')
             .then(response => response.json())
-            .then(productData => setProduct(productData))
+            .then(productData => {
+                setProduct(productData) 
+                // console.log("one");
+            })
             .catch(error => console.log(error));
+            
     }, [])
     //! Loading Product Data End
 
-    
 
 
 
-    
+
+
 
 
 
@@ -36,10 +39,13 @@ const Shop = () => {
     const [selectedList, setSelectedList] = useState([]);
     // !Selected List End
 
-   
 
     // Total Selected List
-    const TotalSelectedItem = selectedList.length;
+    const TotalSelectedItem = totalQuantity(selectedList);
+
+ 
+
+    
 
 
     // Total price
@@ -48,49 +54,78 @@ const Shop = () => {
 
     // Total Shipping Charge.
     const totalShippingCost = totalShippingCharge(selectedList);
-  
+
 
     // Total Tax
-    const total = totalPrice + totalShippingCost;
+    const total = (totalPrice + totalShippingCost);
     const tax = (total * 0.1).toFixed(2);
 
 
 
 
-    const [returnDataFromDB, setReturnDataFromDB] = useState([]);
 
-
-
-    // TODO Returning Same ID
-     // ! Return Data Start
-     //  console.log(Object.entries(returnDataFromDB).map(id=> id[0]));
-     for (const keyID in returnDataFromDB)
-     {
-
-        const product = products.find(item => item.id = keyID
-);
-        console.log("working")
-        console.log(product.name);
-    }
-    // ! Return Data End
-
-
-
-
-
-
+ 
+   
     // ! Getting Data From Local Storage.
-    useEffect(()=> {
-        setReturnDataFromDB(JSON.parse(localStorage.getItem('craft')));
-    },[selectedList])
+    useEffect(() => {
+
+        const returnDataFromDB = JSON.parse(localStorage.getItem('craft'));
+
+           // TODO Returning Same ID
+        // ! Return Data Start
+
+        // Saved Card with quantity...
+        const savedCard = [];
+
+        // Looping the return  ID
+        for (const keyID in returnDataFromDB) {
+
+            // Finding The product using ID
+            const addedProduct = ((products.find(item => item.id === keyID)))
+
+            // Set product Quantity.
+            if(addedProduct)
+            {
+                const quantity = returnDataFromDB[keyID];
+                addedProduct.quantity = quantity;
+                // push The Product into card array.
+                savedCard.push(addedProduct);
+            }
+
+            // console.log(savedCard);
+
+            // *Sending Saved card into selected card.
+            setSelectedList(savedCard);
+
+
+           
+        }
+        // ! Return Data End
+    }, [products])
+    // ! Getting Data From Local Storage.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     // !Add item Function Start
     const addItemHandler = (props) => {
-        
+
         // List Of Selected item...
-        setSelectedList([...selectedList,props]);
+        setSelectedList([...selectedList, props]);
 
 
         // Calling it From Utilities...
@@ -98,12 +133,12 @@ const Shop = () => {
 
     }
     // !Add item Function End
-    
-    
-    
-    
-    
-   
+
+
+
+
+
+
 
 
 
