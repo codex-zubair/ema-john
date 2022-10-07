@@ -18,11 +18,11 @@ const Shop = () => {
         fetch('products.json')
             .then(response => response.json())
             .then(productData => {
-                setProduct(productData) 
+                setProduct(productData)
                 // console.log("one");
             })
             .catch(error => console.log(error));
-            
+
     }, [])
     //! Loading Product Data End
 
@@ -42,10 +42,11 @@ const Shop = () => {
 
     // Total Selected List
     const TotalSelectedItem = totalQuantity(selectedList);
+    // const TotalSelectedItem = selectedList.length;
+    // const TotalSelectedItem  = 1;
 
- 
 
-    
+
 
 
     // Total price
@@ -64,14 +65,14 @@ const Shop = () => {
 
 
 
- 
-   
+
+
     // ! Getting Data From Local Storage.
     useEffect(() => {
 
         const returnDataFromDB = JSON.parse(localStorage.getItem('craft'));
 
-           // TODO Returning Same ID
+        // TODO Returning Same ID
         // ! Return Data Start
 
         // Saved Card with quantity...
@@ -84,8 +85,7 @@ const Shop = () => {
             const addedProduct = ((products.find(item => item.id === keyID)))
 
             // Set product Quantity.
-            if(addedProduct)
-            {
+            if (addedProduct) {
                 const quantity = returnDataFromDB[keyID];
                 addedProduct.quantity = quantity;
                 // push The Product into card array.
@@ -98,22 +98,11 @@ const Shop = () => {
             setSelectedList(savedCard);
 
 
-           
+
         }
         // ! Return Data End
     }, [products])
     // ! Getting Data From Local Storage.
-
-
-
-
-
-
-
-
-
-
-
 
 
 
