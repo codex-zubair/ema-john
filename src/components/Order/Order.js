@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Craft from '../Craft/Craft';
+import OrderCard from '../OrderCard/OrderCard';
+import './Order.css';
 
 
 const Order = () => {
@@ -16,6 +18,11 @@ const Order = () => {
 
 
 
+
+
+
+
+    
 
 
     // ! Getting Data From Local Storage.
@@ -56,7 +63,10 @@ const Order = () => {
     // ! Getting Data From Local Storage.
 
     return (
-        <div>
+        <div className='order-card'>
+            <div>
+            {selectedList.map(product => <OrderCard product= {product}></OrderCard>)}
+            </div>
             <Craft selectedList = {selectedList}></Craft>
         </div>
     );
