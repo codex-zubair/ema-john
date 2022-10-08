@@ -6,24 +6,12 @@ import { totalQuantity, totalShippingCharge, totalSum } from '../../utilities/ca
 import Card from '../Card/Card';
 import Craft from '../Craft/Craft';
 import './Shop.css';
+import { useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
 
     //! Loading Product Data Start
-    const [products, setProduct] = useState([]);
-
-
-
-    useEffect(() => {
-        fetch('products.json')
-            .then(response => response.json())
-            .then(productData => {
-                setProduct(productData)
-                // console.log("one");
-            })
-            .catch(error => console.log(error));
-
-    }, [])
+    const products = useLoaderData();
     //! Loading Product Data End
 
 

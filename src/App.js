@@ -15,7 +15,9 @@ function App() {
       path: '/', element: <Main></Main>, children: [
 
         {
-          path: '/', element: <Shop></Shop>
+          path: '/', element: <Shop></Shop>, loader: async()=> {
+            return fetch('products.json');
+          }
         },
         {
           path: '/order', element: <Order></Order>
