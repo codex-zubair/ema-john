@@ -28,29 +28,6 @@ const Shop = () => {
     // !Selected List End
 
 
-    // Total Selected List
-    const TotalSelectedItem = totalQuantity(selectedList);
-    // const TotalSelectedItem = selectedList.length;
-    // const TotalSelectedItem  = 1;
-
-
-
-
-
-    // Total price
-    const totalPrice = totalSum(selectedList);
-
-
-    // Total Shipping Charge.
-    const totalShippingCost = totalShippingCharge(selectedList);
-
-
-    // Total Tax
-    const total = (totalPrice + totalShippingCost);
-    const tax = (total * 0.1).toFixed(2);
-
-
-
 
 
 
@@ -133,7 +110,7 @@ const Shop = () => {
 
             <div className='craft-div'>
 
-                <Craft item={TotalSelectedItem} tax={tax} total={total} price={totalPrice} shipping={totalShippingCost}></Craft>
+                <Craft selectedList = {selectedList}></Craft>
 
 
             </div>

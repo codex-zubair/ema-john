@@ -1,9 +1,12 @@
 import React from 'react';
+import Craft from '../Craft/Craft';
 
 const Order = () => {
+
+    
     return (
         <div>
-            <h1>Order</h1>
+           <Craft></Craft>
         </div>
     );
 };

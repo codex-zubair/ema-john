@@ -1,16 +1,41 @@
 import React from 'react';
+import { totalQuantity, totalShippingCharge, totalSum } from '../../utilities/calculation';
 import './Craft.css';
 
 const Craft = (props) => {
+    
+    const {selectedList} = props;
+    
+
+       // Total Selected List
+       const TotalSelectedItem = totalQuantity(selectedList);
+    
+       
+       // Total price
+       const totalPrice = totalSum(selectedList);
+   
+   
+       // Total Shipping Charge.
+       const totalShippingCost = totalShippingCharge(selectedList);
+   
+   
+       // Total Tax
+       const total = (totalPrice + totalShippingCost);
+       const tax = (total * 0.1).toFixed(2);
+   
+   
+   
+
+
     return (
         <div className='craft'>
             <h2 style={{textAlign:'center'}}>Order Summary</h2>
             <div style={{marginLeft:'1rem'}}>
-            <p>Selected Items: {props.item}</p>
-            <p>Total Price: <span>${props.price}</span></p>
-            <p>Total Shipping Charges: <span>${props.shipping}</span></p>
-            <p>Tax: <span>${props.tax}</span></p>
-            <h3 style={{fontSize:'21px'}}>Grand Total: <span>${props.total}</span></h3>
+            <p>Selected Items: {TotalSelectedItem}</p>
+            <p>Total Price: <span>${totalPrice}</span></p>
+            <p>Total Shipping Charges: <span>${totalShippingCost}</span></p>
+            <p>Tax: <span>${tax}</span></p>
+            <h3 style={{fontSize:'21px'}}>Grand Total: <span>${total}</span></h3>
             </div>
             {/* Button Div Start */}
             <div className='button-div'>
