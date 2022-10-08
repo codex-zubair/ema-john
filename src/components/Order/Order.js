@@ -7,10 +7,10 @@ import './Order.css';
 
 const Order = () => {
 
-  
+
     const products = useLoaderData();
 
-  
+
     // !Selected List Start
     const [selectedList, setSelectedList] = useState([]);
     // !Selected List End
@@ -18,11 +18,13 @@ const Order = () => {
 
 
 
+    const deleteItem = (id) => {
+        alert(id);
+    }
 
 
 
 
-    
 
 
     // ! Getting Data From Local Storage.
@@ -59,15 +61,15 @@ const Order = () => {
 
         }
         // ! Return Data End
-    }, [products])
+    }, [products, load])
     // ! Getting Data From Local Storage.
 
     return (
         <div className='order-card'>
             <div>
-            {selectedList.map(product => <OrderCard product= {product}></OrderCard>)}
+                {selectedList.map(product => <OrderCard product={product} deleteItem={deleteItem}></OrderCard>)}
             </div>
-            <Craft selectedList = {selectedList}></Craft>
+            <Craft selectedList={selectedList}></Craft>
         </div>
     );
 };

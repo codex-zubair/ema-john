@@ -4,11 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
 
 
-const OrderCard = ({product}) => {
+const OrderCard = ({product,deleteItem}) => {
 
     const {name, price, img, shipping,id} = product;
 
-    console.log(product);
     return (
         <div className='order-card-div'>
             <div style={{display: 'flex'}}>
@@ -30,7 +29,7 @@ const OrderCard = ({product}) => {
 
                
                <div>
-               <button><FontAwesomeIcon icon={faDeleteLeft} /></button>
+               <button onClick={()=> deleteItem(id)}><FontAwesomeIcon icon={faDeleteLeft} /></button>
                </div>
               
         </div>

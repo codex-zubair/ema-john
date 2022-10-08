@@ -93,13 +93,6 @@ const Shop = () => {
 
 
 
-
-
-
-
-
-
-
     return (
         <main className='shop-main'>
             <div className='card-div'>
