@@ -15,13 +15,16 @@ function App() {
       path: '/', element: <Main></Main>, children: [
 
         {
-          path: '/', element: <Shop></Shop>, loader: async()=> {
+          path: '/', element: <Shop></Shop>, loader: async () => {
             return fetch('products.json');
           }
         },
         {
-          path: '/order', element: <Order></Order>
+          path: '/order', element: <Order></Order>, loader: async () => {
+            return fetch('products.json');
+          }
         },
+
         {
           path: '/inventory', element: <Inventory></Inventory>
         },
@@ -36,7 +39,7 @@ function App() {
     }
 
 
-    
+
 
 
 
