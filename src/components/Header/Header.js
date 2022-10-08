@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 import logo from '../../images/Logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 
@@ -16,11 +16,11 @@ const Header = () => {
 
                 {/* Nav Menu Section Start*/}
                 <div div className='nav-menu-link'>
-                <Link to='/'>Shop</Link>
-                <Link to='/order'>Order</Link>
-                <Link to='/inventory'>Inventory</Link>
-                <Link to="/about">About US</Link>
-                <Link to='/login'>Login</Link>
+                <Link className='shop' to='/'>Shop</Link>
+                <NavLink to='/order' >Order</NavLink>
+                <NavLink to='/inventory'>Inventory</NavLink>
+                <NavLink to="/about">About us</NavLink>
+                <NavLink to='/login'>Login</NavLink>
 
                 </div>
 

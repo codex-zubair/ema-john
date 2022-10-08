@@ -14,13 +14,31 @@ nav {
     gap: 32px;
 }
 
-.nav-menu-link a {
-    font-size: 17px;
-    
+.nav-menu-link a:hover
+{
+    padding: 5px 10px;
+    background-color: orange;
 }
 
-.nav-menu-link a:hover {
-    color: #FF9900;
+
+
+
+.nav-menu-link a
+{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    padding: 5px 10px;
+}
+
+
+
+.active {
+    
+    background-color: orange;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: 400;
 }
 
 
@@ -32,19 +50,28 @@ nav {
 
     .nav-menu-link {
         position: absolute;
+        padding: 1px 20px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         right: 3%;
         top: 2%;
         background-color: rgba(28, 43, 53, 1);
     }
 
-    .nav-menu-link a {
-
-        display: flex;
-        flex-direction: column;
-
-
+    .nav-menu-link a
+    {
+        color: white;
+        text-decoration: none;
+        padding: 5px 20px;
+        width: 100%;
+        text-align: center;
     }
+
+    .nav-menu-link a:focus
+    {
+        background-color: orange;
+    }
+    
 
 }

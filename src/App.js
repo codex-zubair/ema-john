@@ -34,12 +34,7 @@ function App() {
     }
 
 
-    // <Link to='/shop'>Shop</Link>
-    //               <Link to='/order'>Order</Link>
-    //               <Link to='/inventory'>Inventory</Link>
-    //               <Link href="/about">About US</Link>
-    //               <Link src='/login'>Login</Link>
-
+    
 
 
 
