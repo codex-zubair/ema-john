@@ -1,26 +1,49 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
+import Login from './components/Login/Login';
+import ManageReview from './components/ManageReview/ManageReview';
+import Order from './components/Order/Order';
+import OrderReview from './components/OrderReview/OrderReview';
 import Shop from './components/Shop/Shop';
+import Main from './layout/Main/Main';
 
 function App() {
+
+  const router = createBrowserRouter([
+
+    { path: '/', element: <Shop></Shop> },
+
+    {
+      path: '/order', element: <Order></Order>
+    },
+    {
+      path: '/order-review', element: <OrderReview></OrderReview>
+    },
+    {
+      path: '/manage-review', element: <ManageReview></ManageReview>
+    },
+
+    {
+      path: '/login' , element: <Login></Login>
+    }
+
+
+
+
+
+  ]);
+
+
+
   return (
     <div className='app'>
-      {/* Header Section Start */}
-      <Header></Header>
-      {/* Header Section End */}
 
-      {/* Main Section Start */}
-      <main className='main-section'>
-      <Shop></Shop>
-      </main>
-      {/* Main Section End */}
+      {/* Main Layout Section Start */}
+      <Main></Main>
+      {/* Main Layout Section Start */}
 
-
-      {/* Footer Section Start */}
-      <Footer></Footer>
-      {/* Footer Section End */}
-
+      <RouterProvider
+        router={router} />
     </div>
   );
 }

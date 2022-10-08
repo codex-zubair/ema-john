@@ -14,7 +14,7 @@ const Header = () => {
 
             {/* Nav Menu Section Start*/}
             <div className='nav-menu-link'>
-                <a>Order</a>
+                <a src='/order'>Order</a>
                 <a>Order Review</a>
                 <a>Manage Review</a>
                 <a>Login</a>

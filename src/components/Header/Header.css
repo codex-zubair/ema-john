@@ -30,12 +30,12 @@ nav {
 @media screen and (max-width: 600px) {
     /* TODO Fix Header. */
 
-    .nav-menu-link:hover {
+    .nav-menu-link {
         position: absolute;
         display: flex;
         flex-direction: column;
         right: 3%;
-        top: 40%;
+        top: 2%;
         background-color: rgba(28, 43, 53, 1);
     }
 
