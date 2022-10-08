@@ -6,7 +6,6 @@ nav {
     justify-content: space-between;
     padding-left: 112px;
     padding-right: 97px;
-    position: relativemain-section;
 }
 
 .nav-menu-link {
@@ -17,6 +16,7 @@ nav {
 
 .nav-menu-link a {
     font-size: 17px;
+    
 }
 
 .nav-menu-link a:hover {

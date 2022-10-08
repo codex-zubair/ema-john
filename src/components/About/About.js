@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Order = () => {
+const About = () => {
     return (
         <div>
-            <h1>Order</h1>
+            <h1>About</h1>
         </div>
     );
 };
 
-export default Order;
+export default About;

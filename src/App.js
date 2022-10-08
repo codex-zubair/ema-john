@@ -1,31 +1,44 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login/Login';
-import ManageReview from './components/ManageReview/ManageReview';
+import About from './components/About/About';
 import Order from './components/Order/Order';
-import OrderReview from './components/OrderReview/OrderReview';
 import Shop from './components/Shop/Shop';
 import Main from './layout/Main/Main';
+import Inventory from './components/Inventory/Inventory';
 
 function App() {
 
   const router = createBrowserRouter([
 
-    { path: '/', element: <Shop></Shop> },
+    {
+      path: '/', element: <Main></Main>, children: [
 
-    {
-      path: '/order', element: <Order></Order>
-    },
-    {
-      path: '/order-review', element: <OrderReview></OrderReview>
-    },
-    {
-      path: '/manage-review', element: <ManageReview></ManageReview>
-    },
+        {
+          path: '/', element: <Shop></Shop>
+        },
+        {
+          path: '/order', element: <Order></Order>
+        },
+        {
+          path: '/inventory', element: <Inventory></Inventory>
+        },
+        {
+          path: '/about', element: <About></About>
+        },
 
-    {
-      path: '/login' , element: <Login></Login>
+        {
+          path: '/login', element: <Login></Login>
+        }
+      ]
     }
+
+
+    // <Link to='/shop'>Shop</Link>
+    //               <Link to='/order'>Order</Link>
+    //               <Link to='/inventory'>Inventory</Link>
+    //               <Link href="/about">About US</Link>
+    //               <Link src='/login'>Login</Link>
 
 
 
@@ -37,11 +50,6 @@ function App() {
 
   return (
     <div className='app'>
-
-      {/* Main Layout Section Start */}
-      <Main></Main>
-      {/* Main Layout Section Start */}
-
       <RouterProvider
         router={router} />
     </div>
