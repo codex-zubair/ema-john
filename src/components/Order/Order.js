@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { json, useLoaderData } from 'react-router-dom';
 import Craft from '../Craft/Craft';
 import OrderCard from '../OrderCard/OrderCard';
 import './Order.css';
@@ -14,13 +14,6 @@ const Order = () => {
     // !Selected List Start
     const [selectedList, setSelectedList] = useState([]);
     // !Selected List End
-
-
-
-
-    const deleteItem = (id) => {
-        alert(id);
-    }
 
 
 
@@ -64,10 +57,39 @@ const Order = () => {
     }, [products])
     // ! Getting Data From Local Storage.
 
+
+
+    // !Delete Item start 
+    const deleteItem = (id) => {
+        const remainingItem = selectedList.filter(item => item.id !== id);
+        setSelectedList(remainingItem);
+        // Storing Remaining Item.
+        // localStorage.setItem('craft', JSON.stringify(remainingItem));
+
+
+
+        const craft = localStorage.getItem('craft');
+
+        let craftIDObject = JSON.parse(craft);
+
+        // Key Checking inside Object.
+        if(id in craftIDObject)
+        {
+            delete craftIDObject[id];
+            // Must Have to Store the Card after Delete other Wise it will be repeat
+            localStorage.setItem('craft', JSON.stringify(craftIDObject));
+        }
+        
+     
+    }
+    // !Delete Item End
+
+
+
     return (
         <div className='order-card'>
             <div>
-                {selectedList.map(product => <OrderCard product={product} deleteItem={deleteItem}></OrderCard>)}
+                {selectedList.map(product => <OrderCard deleteItem={deleteItem} product={product}></OrderCard>)}
             </div>
             <Craft selectedList={selectedList}></Craft>
         </div>

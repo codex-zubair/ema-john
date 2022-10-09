@@ -78,8 +78,6 @@ const Shop = () => {
     const addItemHandler = (props) => {
      
 
-        console.log(props);
-
         // List Of Selected item...
         setSelectedList([...selectedList, props]);
 
@@ -90,6 +88,7 @@ const Shop = () => {
 
     }
     // !Add item Function End
+
 
 
 
