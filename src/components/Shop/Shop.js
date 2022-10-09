@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { storeIDLocalDB } from '../../utilities/storeIDLocalDB';
-import { totalQuantity, totalShippingCharge, totalSum } from '../../utilities/calculation';
 
 
 import Card from '../Card/Card';
@@ -13,7 +12,6 @@ const Shop = () => {
     //! Loading Product Data Start
     const products = useLoaderData();
     //! Loading Product Data End
-
 
 
 
@@ -51,11 +49,12 @@ const Shop = () => {
 
             // Set product Quantity.
             if (addedProduct) {
-                const quantity = returnDataFromDB[keyID];
+                var quantity = returnDataFromDB[keyID];
                 addedProduct.quantity = quantity;
                 // push The Product into card array.
                 savedCard.push(addedProduct);
             }
+
 
             // console.log(savedCard);
 
@@ -77,9 +76,13 @@ const Shop = () => {
 
     // !Add item Function Start
     const addItemHandler = (props) => {
+     
+
+        console.log(props);
 
         // List Of Selected item...
         setSelectedList([...selectedList, props]);
+
 
 
         // Calling it From Utilities...

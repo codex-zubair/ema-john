@@ -9,6 +9,9 @@ const Craft = (props) => {
 
        // Total Selected List
        const TotalSelectedItem = totalQuantity(selectedList);
+
+
+    
     
        
        // Total price

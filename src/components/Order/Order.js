@@ -61,7 +61,7 @@ const Order = () => {
 
         }
         // ! Return Data End
-    }, [products, load])
+    }, [products])
     // ! Getting Data From Local Storage.
 
     return (

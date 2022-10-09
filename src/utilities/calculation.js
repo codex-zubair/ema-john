@@ -24,6 +24,7 @@ export const totalShippingCharge = (products)=>
 export const totalQuantity = (products) =>
 {
     return products.reduce((previous, current) => {
+
         return (previous + current.quantity);
     },0); 
 }
