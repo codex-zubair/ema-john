@@ -24,7 +24,7 @@ const Register = () => {
 
                 <button className='submit'>Sign Up</button>
             <div className='register-box'>
-                <p>Already have an account?</p> <Link>Login</Link>
+                <p>Already have an account?</p> <Link to = '/login'>Login</Link>
             </div>
 
             <div className='or-section' style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr'}}>

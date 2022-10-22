@@ -19,7 +19,7 @@ const Login = () => {
 
                 <button className='submit'>Login</button>
             <div className='register-box'>
-                <p>New to Ema-john?</p> <Link>Create New Account</Link>
+                <p>New to Ema-john?</p> <Link to='/register'>Create New Account</Link>
             </div>
 
             <div className='or-section' style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr'}}>
