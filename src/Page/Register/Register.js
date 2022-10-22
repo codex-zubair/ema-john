@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Login_register.css';
+import './Register.css';
 
-const Login = () => {
+
+const Register = () => {
     return (
-        <form className='login-from'>
-            <h1 className='header'>Login</h1>
+        <form className='register-from'>
+            <h1 className='header'>Sign Up</h1>
 
+            <div className='name-filed'>
+                <p>Name</p>
+                <input type="text" />
+            </div>
             <div className='email-filed'>
                 <p>Email</p>
                 <input type="text" />
@@ -17,9 +22,9 @@ const Login = () => {
                 <input type="text" />
             </div>
 
-                <button className='submit'>Login</button>
+                <button className='submit'>Sign Up</button>
             <div className='register-box'>
-                <p>New to Ema-john?</p> <Link>Create New Account</Link>
+                <p>Already have an account?</p> <Link>Login</Link>
             </div>
 
             <div className='or-section' style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr'}}>
@@ -31,4 +36,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

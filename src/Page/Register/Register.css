@@ -1,0 +1,28 @@
+.register-from
+{
+    border: 1px solid rgba(149, 160, 167, 1);
+    width: 500px;
+    height: 700px;
+    margin: 216px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+}
+
+
+
+
+.name-filed {
+    margin-top: 20px;
+    height: 84px;
+
+}
+
+.name-filed input {
+    width: 415px;
+    height: 55px;
+    border-radius: 8px;
+    border: 1px solid rgba(149, 160, 167, 1);
+}
+
