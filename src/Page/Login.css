@@ -1,0 +1,88 @@
+p {
+    font-size: 17px;
+}
+
+.login-from {
+    border: 1px solid rgba(149, 160, 167, 1);
+    width: 500px;
+    height: 600px;
+    margin: 216px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    
+    
+
+}
+
+
+.header {
+    margin-top: 26px;
+}
+
+
+.email-filed {
+    margin-top: 30px;
+    height: 84px;
+
+}
+
+.email-filed input {
+    width: 415px;
+    height: 55px;
+    border-radius: 8px;
+    border: 1px solid rgba(149, 160, 167, 1);
+}
+
+
+
+.password-filed {
+    margin-top: 20px;
+    height: 84px;
+
+
+}
+
+.password-filed input {
+    border: 1px solid rgba(149, 160, 167, 1);
+    width: 415px;
+    height: 55px;
+    border-color: rgba(149, 160, 167, 1);
+    border-radius: 8px;
+
+}
+
+
+
+.submit {
+    margin-top: 44px;
+    font-size: 21px;
+    width: 415px;
+    height: 55px;
+    background: rgba(255, 153, 0, 0.3);
+    border: none;
+    border-radius: 8px;
+
+}
+
+
+.register-box {
+    margin-top: 8px;
+    display: flex;
+    gap: 5px;
+}
+
+.or-section {
+    margin-top: 15px;
+}
+
+.google-login {
+    margin-top: 15px;
+    width: 415px;
+    height: 55px;
+    background-color: white;
+    font-size: 21px;
+    border: 1px solid rgba(149, 160, 167, 1);
+    border-radius: 8px;
+}
