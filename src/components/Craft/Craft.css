@@ -1,3 +1,9 @@
+p
+{
+    color: black !important;
+}
+
+
 .craft{
     background-color: rgba(255, 153, 0, 0.3);
     width: 264px;
@@ -16,10 +22,7 @@
     padding-top: 0%;
 }
 
-.craft p 
-{
-    font-size: 17px;
-}
+
 
 
 .button-div

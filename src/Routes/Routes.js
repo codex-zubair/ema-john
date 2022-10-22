@@ -4,7 +4,7 @@ import Inventory from "../components/Inventory/Inventory";
 import Order from "../components/Order/Order";
 import Shop from "../components/Shop/Shop";
 import Main from "../layout/Main/Main";
-import Login from "../Page/Login";
+import Login from "../Page/Login/Login";
 import Register from "../Page/Register/Register";
 
  export const router = createBrowserRouter([

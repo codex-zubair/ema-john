@@ -2,9 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Login_register.css';
 
+
 const Login = () => {
+
+    const singUpHandler =(event)=> 
+    {
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+    }
+
+
+
     return (
-        <form className='login-from'>
+        <form onSubmit={singUpHandler} className='login-from'>
             <h1 className='header'>Login</h1>
 
             <div className='email-filed'>

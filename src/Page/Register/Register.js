@@ -4,22 +4,35 @@ import './Register.css';
 
 
 const Register = () => {
+
+    const singUpHandler =(event)=> 
+    {
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+    }
+
+
     return (
-        <form className='register-from'>
+        <form onSubmit={singUpHandler} className='register-from'>
             <h1 className='header'>Sign Up</h1>
 
             <div className='name-filed'>
                 <p>Name</p>
-                <input type="text" />
+                <input name ='name' type="text" />
             </div>
             <div className='email-filed'>
                 <p>Email</p>
-                <input type="text" />
+                <input name='email' type="text" />
             </div>
 
             <div className='password-filed'>
                 <p>Password</p>
-                <input type="text" />
+                <input name='password' type="text" />
             </div>
 
                 <button className='submit'>Sign Up</button>

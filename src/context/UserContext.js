@@ -18,13 +18,6 @@ const UserContext = ({ children }) => {
 
 
 
-    // // Sign UP.
-    // const signUp = ()=> {
-    //     createUserWithEmailAndPassword(auth, email,)
-    // }
-
-
-
 
 
 
