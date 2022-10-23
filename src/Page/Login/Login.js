@@ -7,11 +7,9 @@ import './Login_register.css';
 const Login = () => {
 
     // Get Data From Context api
-    const {loginByEmail}  = useContext(AuthContext);
+    const { loginByEmail } = useContext(AuthContext);
 
 
-    // navigate system 
-    const navigate = useNavigate();
 
 
     // Login Error State SET it will COMES WITH ALERT!
@@ -19,28 +17,27 @@ const Login = () => {
 
 
     // Taking Value From Login Form Start.
-    const singUpHandler =(event)=> 
-    {
+    const singUpHandler = (event) => {
         event.preventDefault();
-        
+
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
 
-       
 
 
-        loginByEmail(email,password)
-        .then(()=> navigate('/'))
-        .catch(error=> console.log(error));
-        
-        
+
+        loginByEmail(email, password)
+            .then(() => {})
+            .catch(error => console.log(error));
+
+
     }
     // Taking Value From Login Form End.
 
 
 
-    
+
 
 
 
@@ -58,13 +55,13 @@ const Login = () => {
                 <input name='password' required type="password" />
             </div>
 
-                <button className='submit'>Login</button>
+            <button className='submit'>Login</button>
             <div className='register-box'>
                 <p>New to Ema-john?</p> <Link to='/register'>Create New Account</Link>
             </div>
 
-            <div className='or-section' style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr'}}>
-                <hr /> <p style={{textAlign:'center'}}>or</p> <hr />
+            <div className='or-section' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
+                <hr /> <p style={{ textAlign: 'center' }}>or</p> <hr />
             </div>
 
             <button className='google-login'>Continue With Google</button>
