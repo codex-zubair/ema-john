@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import './Login_register.css';
 
@@ -8,6 +8,10 @@ const Login = () => {
 
     // Get Data From Context api
     const {loginByEmail}  = useContext(AuthContext);
+
+
+    // navigate system 
+    const navigate = useNavigate();
 
 
     // Login Error State SET it will COMES WITH ALERT!
@@ -27,7 +31,7 @@ const Login = () => {
 
 
         loginByEmail(email,password)
-        .then(result=> console.log(result))
+        .then(()=> navigate('/'))
         .catch(error=> console.log(error));
         
         
