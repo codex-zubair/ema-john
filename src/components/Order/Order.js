@@ -1,11 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import {  useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import {  Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 import Craft from '../Craft/Craft';
 import OrderCard from '../OrderCard/OrderCard';
 import './Order.css';
 
 
 const Order = () => {
+
+
+    const navigate = useNavigate();
+
+
+    // taking user
+    const {user} = useContext(AuthContext);
+
+
+    const location = useLocation();
+
+
+    
 
 
     const products = useLoaderData();
@@ -16,7 +30,7 @@ const Order = () => {
     // !Selected List End
 
 
-
+   
 
 
 
@@ -87,13 +101,12 @@ const Order = () => {
 
 
     return (
-        <div className='order-card'>
-            <div>
-                {selectedList.map(product => <OrderCard deleteItem={deleteItem} product={product}></OrderCard>)}
-            </div>
-            <Craft selectedList={selectedList}></Craft>
+        user? <div className='order-card'>
+        <div>
+            {selectedList.map(product => <OrderCard deleteItem={deleteItem} product={product}></OrderCard>)}
         </div>
-    );
+        <Craft selectedList={selectedList}></Craft>
+    </div> : <Navigate to='/login' state={{from: location}} replace></Navigate>);
 };
 
 export default Order;

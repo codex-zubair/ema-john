@@ -1,12 +1,16 @@
 import React, { useContext } from 'react';
 import './Header.css';
 import logo from '../../images/Logo.svg';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 
 
 
 const Header = () => {
+
+    // using location system 
+    const location = useLocation();
+
 
     const { user, signOutHandler } = useContext(AuthContext);
 
@@ -33,7 +37,7 @@ const Header = () => {
                         <Link to='/' className='name'>{user?.displayName}</Link></div>
 
                         : <div className='nav-menu-link'>
-                        <NavLink to='/login'>Login</NavLink>
+                        <NavLink state={{from: location}} replace to='/login'>Login</NavLink>
                         <NavLink to='/register'>Register</NavLink>
                         </div>
 

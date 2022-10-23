@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import './Login_register.css';
 
@@ -10,6 +10,15 @@ const Login = () => {
     const { loginByEmail } = useContext(AuthContext);
 
 
+    // Getting location system.
+    const location = useLocation();
+
+    // Getting Location.
+    const from = location.state?.from?.pathname || '/'; 
+
+
+    // navigate system 
+    const navigate = useNavigate();
 
 
     // Login Error State SET it will COMES WITH ALERT!
@@ -28,7 +37,8 @@ const Login = () => {
 
 
         loginByEmail(email, password)
-            .then(() => {})
+            .then(() => navigate(from, {replace: true}))
+           
             .catch(error => console.log(error));
 
 
