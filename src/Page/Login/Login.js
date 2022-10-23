@@ -23,12 +23,12 @@ const Login = () => {
 
             <div className='email-filed'>
                 <p>Email</p>
-                <input type="text" />
+                <input required type="text" />
             </div>
 
             <div className='password-filed'>
                 <p>Password</p>
-                <input type="text" />
+                <input required type="text" />
             </div>
 
                 <button className='submit'>Login</button>

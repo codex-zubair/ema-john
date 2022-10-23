@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Register.css';
 
 
 const Register = () => {
 
-    const singUpHandler =(event)=> 
-    {
+    const [error, setError] = useState("Already have an account?");
+
+    const singUpHandler = (event) => {
         event.preventDefault();
 
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+
+        //   Regular Expression Password Checking Start
+        if (password.length < 5) {
+            return setError("Password should be at least 6 character!");
+        }
+
+        if (!/[@#^&*$#@%]/.test(password)) {
+            return setError("Please add at least one Special Character!");
+        }
+        //   Regular Expression Password Checking End
 
     }
 
@@ -23,25 +34,29 @@ const Register = () => {
 
             <div className='name-filed'>
                 <p>Name</p>
-                <input name ='name' type="text" />
+                <input required name='name' type="text" />
             </div>
             <div className='email-filed'>
                 <p>Email</p>
-                <input name='email' type="text" />
+                <input required name='email' type="text" />
             </div>
 
             <div className='password-filed'>
                 <p>Password</p>
-                <input name='password' type="text" />
+                <input required name='password' type="password" />
+            </div>
+            <div className='password-filed'>
+                <p>Confirm Password</p>
+                <input required name='confirm' type="password" />
             </div>
 
-                <button className='submit'>Sign Up</button>
+            <button className='submit'>Sign Up</button>
             <div className='register-box'>
-                <p>Already have an account?</p> <Link to = '/login'>Login</Link>
+                <p>{error}</p> <Link to='/login'>Login</Link>
             </div>
 
-            <div className='or-section' style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr'}}>
-                <hr /> <p style={{textAlign:'center'}}>or</p> <hr />
+            <div className='or-section' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
+                <hr /> <p style={{ textAlign: 'center' }}>or</p> <hr />
             </div>
 
             <button className='google-login'>Continue With Google</button>
