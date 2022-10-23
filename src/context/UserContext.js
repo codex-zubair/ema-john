@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
 import { app } from '../Firebase/Firebase.config';
 
 
@@ -24,12 +24,30 @@ const UserContext = ({ children }) => {
 
 
 
+
+    // TODO ADD Profile Photo system Later.
+    // Set user Name profile Photo
+    const setUserNameAndPhoto = (name)=> 
+    {
+        return updateProfile(auth.currentUser, {
+            displayName:{name}
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Context Variable provider.
-    const authInfo = { user, emailSignUp};
-
-
-
-
+    const authInfo = { user, emailSignUp,setUserNameAndPhoto};
 
 
 

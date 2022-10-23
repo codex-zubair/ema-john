@@ -8,7 +8,7 @@ import './Register.css';
 const Register = () => {
 
     // Taking Values From USE CONTEXT>>>
-    const {emailSignUp} = useContext(AuthContext);
+    const {emailSignUp,setUserNameAndPhoto} = useContext(AuthContext);
 
 
     // Error State For Sign UP System
@@ -24,6 +24,7 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirm = form.confirm.value;
 
         //   Regular Expression Password Checking Start
         if (password.length < 5) {
@@ -35,6 +36,12 @@ const Register = () => {
         }
         //   Regular Expression Password Checking End
 
+
+        if(confirm !== password)
+        {
+            return alert("Password are not Match!");
+        }
+
         
     
         // SignUP Using EMAIL start
@@ -42,6 +49,13 @@ const Register = () => {
         .then(result=> console.log(result))
         .catch(error=> console.log(error));
         // SignUP Using EMAIL End
+
+
+        // Set User Name AND PHOTO Start
+        setUserNameAndPhoto(name)
+        .then(result=> console.log(result))
+        .catch(error=> console.log(error));
+        // Set User Name AND PHOTO End
 
     }
     // Handler For Taking USER INFO FROM Form End.
