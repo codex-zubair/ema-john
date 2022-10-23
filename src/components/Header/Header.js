@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/UserContext';
 
 const Header = () => {
 
-    const {user} = useContext(AuthContext);
+    const {user, signOutHandler} = useContext(AuthContext);
 
 
 
@@ -25,10 +25,11 @@ const Header = () => {
                 <NavLink to='/order' >Order</NavLink>
                 <NavLink to='/inventory'>Inventory</NavLink>
                 <NavLink to="/about">About us</NavLink>
-                <NavLink to='/login'>Login</NavLink>
                 <NavLink to='/register'>Register</NavLink>
 
-                <Link className='user-name'>{user.displayName}</Link>
+                <NavLink to='/login'>Login</NavLink>
+                <Link onClick={signOutHandler} to='/login'>Sign Out</Link>
+                <Link className='name'>{user?.displayName}</Link>
                 </div>
 
             

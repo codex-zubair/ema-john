@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword ,updateProfile, onAuthStateChanged,signInWithEmailAndPassword} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { app } from '../Firebase/Firebase.config';
 
 
@@ -13,7 +13,7 @@ const UserContext = ({ children }) => {
 
 
     // User State
-    const [user, setUser] = useState('Rock');
+    const [user, setUser] = useState({});
 
 
 
@@ -27,8 +27,7 @@ const UserContext = ({ children }) => {
 
     // TODO ADD Profile Photo system Later.
     // Set user Name profile Photo
-    const setUserNameAndPhoto = (name)=> 
-    {
+    const setUserNameAndPhoto = (name) => {
         return updateProfile(auth.currentUser, {
             displayName: name
         });
@@ -37,22 +36,31 @@ const UserContext = ({ children }) => {
 
 
     // User Login system.
-    const loginByEmail =  (email,password)=> 
-    {
-        return signInWithEmailAndPassword(auth,email,password);
+    const loginByEmail = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
 
 
+    // user SignOut System
+    const signOutHandler = ()=> {
+        return signOut(auth);
+    }
+
+
     // Auth Current State Tracker.
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser)=> {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
         })
         return () => {
-          unsubscribe();
+            unsubscribe();
         };
-      },[])
+    }, [])
+
+
+
+
 
 
 
@@ -61,7 +69,7 @@ const UserContext = ({ children }) => {
 
 
     // Context Variable provider.
-    const authInfo = { user, emailSignUp,setUserNameAndPhoto, loginByEmail};
+    const authInfo = { user, emailSignUp, setUserNameAndPhoto, loginByEmail, signOutHandler };
 
 
 
