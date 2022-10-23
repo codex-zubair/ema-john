@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/UserContext';
 
 const Header = () => {
 
-    const {user, signOutHandler} = useContext(AuthContext);
+    const { user, signOutHandler } = useContext(AuthContext);
 
 
 
@@ -17,22 +17,30 @@ const Header = () => {
         <nav>
             <img src={logo} alt="" />
 
-            
 
-                {/* Nav Menu Section Start*/}
-                <div className='nav-menu-link'>
+
+            {/* Nav Menu Section Start*/}
+            <div className='nav-menu-link'>
                 <Link className='shop' to='/'>Shop</Link>
                 <NavLink to='/order' >Order</NavLink>
                 <NavLink to='/inventory'>Inventory</NavLink>
                 <NavLink to="/about">About us</NavLink>
-                <NavLink to='/register'>Register</NavLink>
+                
 
-                <NavLink to='/login'>Login</NavLink>
-                <Link onClick={signOutHandler} to='/login'>Sign Out</Link>
-                <Link className='name'>{user?.displayName}</Link>
-                </div>
+                {
+                    user ? 
+                    <div className='nav-menu-link'><Link onClick={signOutHandler} to='/login'>Sign Out</Link>
+                        <Link to='/' className='name'>{user?.displayName}</Link></div>
 
-            
+                        : <div className='nav-menu-link'>
+                        <NavLink to='/login'>Login</NavLink>
+                        <NavLink to='/register'>Register</NavLink>
+                        </div>
+
+                }
+            </div>
+
+
 
 
         </nav>
