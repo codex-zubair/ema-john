@@ -17,11 +17,10 @@ const Header = () => {
         <nav>
             <img src={logo} alt="" />
 
-
-            <div>
+            
 
                 {/* Nav Menu Section Start*/}
-                <div div className='nav-menu-link'>
+                <div className='nav-menu-link'>
                 <Link className='shop' to='/'>Shop</Link>
                 <NavLink to='/order' >Order</NavLink>
                 <NavLink to='/inventory'>Inventory</NavLink>
@@ -32,7 +31,7 @@ const Header = () => {
                 <Link className='user-name'>{user}</Link>
                 </div>
 
-            </div>
+            
 
 
         </nav>

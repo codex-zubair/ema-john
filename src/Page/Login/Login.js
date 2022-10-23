@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login_register.css';
 
 
 const Login = () => {
 
+    // Login Error State SET it will COMES WITH ALERT!
+    const [loginError, setLoginError] = useState();
+
+
+    // Taking Value From Login Form Start.
     const singUpHandler =(event)=> 
     {
         event.preventDefault();
-
+        
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
+        
     }
+    // Taking Value From Login Form End.
+
+
+
+    
 
 
 

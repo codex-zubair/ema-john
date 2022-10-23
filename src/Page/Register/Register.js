@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 import './Register.css';
+
 
 
 const Register = () => {
 
+    // Taking Values From USE CONTEXT>>>
+    const {emailSignUp} = useContext(AuthContext);
+
+
+    // Error State For Sign UP System
     const [error, setError] = useState("Already have an account?");
 
+
+
+    // Handler For Taking USER INFO FROM Form Start.
     const singUpHandler = (event) => {
         event.preventDefault();
 
@@ -25,7 +35,16 @@ const Register = () => {
         }
         //   Regular Expression Password Checking End
 
+        
+    
+        // SignUP Using EMAIL start
+        emailSignUp(email,password)
+        .then(result=> console.log(result))
+        .catch(error=> console.log(error));
+        // SignUP Using EMAIL End
+
     }
+    // Handler For Taking USER INFO FROM Form End.
 
 
     return (
