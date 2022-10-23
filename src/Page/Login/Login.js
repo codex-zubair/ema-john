@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 import './Login_register.css';
 
 
 const Login = () => {
+
+    // Get Data From Context api
+    const {loginByEmail}  = useContext(AuthContext);
+
 
     // Login Error State SET it will COMES WITH ALERT!
     const [loginError, setLoginError] = useState();
@@ -17,6 +22,14 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+
+       
+
+
+        loginByEmail(email,password)
+        .then(result=> console.log(result))
+        .catch(error=> console.log(error));
+        
         
     }
     // Taking Value From Login Form End.
@@ -33,12 +46,12 @@ const Login = () => {
 
             <div className='email-filed'>
                 <p>Email</p>
-                <input required type="text" />
+                <input name='email' required type="text" />
             </div>
 
             <div className='password-filed'>
                 <p>Password</p>
-                <input required type="text" />
+                <input name='password' required type="text" />
             </div>
 
                 <button className='submit'>Login</button>

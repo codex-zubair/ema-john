@@ -8,7 +8,7 @@ import './Register.css';
 const Register = () => {
 
     // Taking Values From USE CONTEXT>>>
-    const {emailSignUp,setUserNameAndPhoto} = useContext(AuthContext);
+    const { emailSignUp, setUserNameAndPhoto } = useContext(AuthContext);
 
 
     // Error State For Sign UP System
@@ -25,7 +25,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
-
+        
         //   Regular Expression Password Checking Start
         if (password.length < 5) {
             return setError("Password should be at least 6 character!");
@@ -37,24 +37,33 @@ const Register = () => {
         //   Regular Expression Password Checking End
 
 
-        if(confirm !== password)
-        {
+        if (confirm !== password) {
             return alert("Password are not Match!");
         }
 
-        
-    
+
+
         // SignUP Using EMAIL start
-        emailSignUp(email,password)
-        .then(result=> console.log(result))
-        .catch(error=> console.log(error));
+        emailSignUp(email, password)
+            .then(() => {
+                // Alert For the Verification Check.
+                alert("Please Check your Email!");
+
+                
+                
+                //*Set User NAME AFTER Create The ACCOUNT 
+                // Reset Form ALSO
+                setUserNameAndPhoto(name)
+                .then(() => form.reset())
+                .catch(error => console.log(error));
+               
+            })
+            .catch(error => alert(error));
         // SignUP Using EMAIL End
 
 
         // Set User Name AND PHOTO Start
-        setUserNameAndPhoto(name)
-        .then(result=> console.log(result))
-        .catch(error=> console.log(error));
+
         // Set User Name AND PHOTO End
 
     }

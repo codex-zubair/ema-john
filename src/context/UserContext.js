@@ -1,5 +1,5 @@
-import React, { createContext, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
+import React, { createContext, useEffect, useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword ,updateProfile, onAuthStateChanged,signInWithEmailAndPassword} from "firebase/auth";
 import { app } from '../Firebase/Firebase.config';
 
 
@@ -30,15 +30,29 @@ const UserContext = ({ children }) => {
     const setUserNameAndPhoto = (name)=> 
     {
         return updateProfile(auth.currentUser, {
-            displayName:{name}
+            displayName: name
         });
     }
 
 
 
+    // User Login system.
+    const loginByEmail =  (email,password)=> 
+    {
+        return signInWithEmailAndPassword(auth,email,password);
+    }
 
 
 
+    // Auth Current State Tracker.
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser)=> {
+            setUser(currentUser);
+        })
+        return () => {
+          unsubscribe();
+        };
+      },[])
 
 
 
@@ -47,7 +61,7 @@ const UserContext = ({ children }) => {
 
 
     // Context Variable provider.
-    const authInfo = { user, emailSignUp,setUserNameAndPhoto};
+    const authInfo = { user, emailSignUp,setUserNameAndPhoto, loginByEmail};
 
 
 

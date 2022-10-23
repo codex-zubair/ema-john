@@ -28,7 +28,7 @@ const Header = () => {
                 <NavLink to='/login'>Login</NavLink>
                 <NavLink to='/register'>Register</NavLink>
 
-                <Link className='user-name'>{user}</Link>
+                <Link className='user-name'>{user.displayName}</Link>
                 </div>
 
             
