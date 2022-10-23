@@ -51,7 +51,7 @@ const Login = () => {
 
             <div className='password-filed'>
                 <p>Password</p>
-                <input name='password' required type="text" />
+                <input name='password' required type="password" />
             </div>
 
                 <button className='submit'>Login</button>
