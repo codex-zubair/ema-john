@@ -8,7 +8,7 @@ import './Register.css';
 const Register = () => {
 
     // Taking Values From USE CONTEXT>>>
-    const { emailSignUp, setUserNameAndPhoto } = useContext(AuthContext);
+    const { emailSignUp, setUserNameAndPhoto,googleLogin } = useContext(AuthContext);
 
 
     // Error State For Sign UP System
@@ -25,7 +25,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
-        
+
         //   Regular Expression Password Checking Start
         if (password.length < 5) {
             return setError("Password should be at least 6 character!");
@@ -49,60 +49,63 @@ const Register = () => {
                 // Alert For the Verification Check.
                 alert("Please Check your Email!");
 
-                
-                
+
+
                 //*Set User NAME AFTER Create The ACCOUNT 
                 // Reset Form ALSO
                 setUserNameAndPhoto(name)
-                .then(() => form.reset())
-                .catch(error => console.log(error));
-               
+                    .then(() => form.reset())
+                    .catch(error => console.log(error));
+
             })
             .catch(error => alert(error));
         // SignUP Using EMAIL End
-
-
-        // Set User Name AND PHOTO Start
-
-        // Set User Name AND PHOTO End
 
     }
     // Handler For Taking USER INFO FROM Form End.
 
 
+
+    
+
+      
+
+
     return (
-        <form onSubmit={singUpHandler} className='register-from'>
-            <h1 className='header'>Sign Up</h1>
+        <div className='register-from'>
+            <form onSubmit={singUpHandler}>
+                <h1 className='header'>Sign Up</h1>
 
-            <div className='name-filed'>
-                <p>Name</p>
-                <input required name='name' type="text" />
-            </div>
-            <div className='email-filed'>
-                <p>Email</p>
-                <input required name='email' type="text" />
-            </div>
+                <div className='name-filed'>
+                    <p>Name</p>
+                    <input required name='name' type="text" />
+                </div>
+                <div className='email-filed'>
+                    <p>Email</p>
+                    <input required name='email' type="text" />
+                </div>
 
-            <div className='password-filed'>
-                <p>Password</p>
-                <input required name='password' type="password" />
-            </div>
-            <div className='password-filed'>
-                <p>Confirm Password</p>
-                <input required name='confirm' type="password" />
-            </div>
+                <div className='password-filed'>
+                    <p>Password</p>
+                    <input required name='password' type="password" />
+                </div>
+                <div className='password-filed'>
+                    <p>Confirm Password</p>
+                    <input required name='confirm' type="password" />
+                </div>
 
-            <button className='submit'>Sign Up</button>
-            <div className='register-box'>
-                <p>{error}</p> <Link to='/login'>Login</Link>
-            </div>
+                <button className='submit'>Sign Up</button>
+                <div className='register-box'>
+                    <p>{error}</p> <Link to='/login'>Login</Link>
+                </div>
 
-            <div className='or-section' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
-                <hr /> <p style={{ textAlign: 'center' }}>or</p> <hr />
-            </div>
+                <div className='or-section' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
+                    <hr /> <p style={{ textAlign: 'center' }}>or</p> <hr />
+                </div>
 
-            <button className='google-login'>Continue With Google</button>
-        </form>
+            </form>
+            <button onClick={googleLogin.then(()=> navigate(from, {replace: true})).catch(error=> console.log(error)))} className='google-login-btn'>Continue With Google</button>
+        </div>
     );
 };
 

@@ -49,10 +49,11 @@ const Craft = (props) => {
                 <p>Tax: <span>${tax}</span></p>
                 <h3 style={{ fontSize: '21px' }}>Grand Total: <span>${total}</span></h3>
             </div>
+
             {/* Button Div Start */}
             <div className='button-div'>
                 <button style={{ backgroundColor: 'rgba(255, 48, 48, 1)' }}>Clear Craft <span>icon</span></button>
-                <button onClick={loginOrder} style={{ backgroundColor: 'rgba(255, 153, 0, 1)' }}>Review Order <span>icon</span></button>
+                <button onClick={loginOrder} style={{ backgroundColor: 'rgba(255, 153, 0, 1)'}}>Review Order <span>icon</span></button>
             </div>
             {/* Button Div End */}
         </div>

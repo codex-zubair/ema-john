@@ -7,7 +7,7 @@ import './Login_register.css';
 const Login = () => {
 
     // Get Data From Context api
-    const { loginByEmail } = useContext(AuthContext);
+    const { loginByEmail,googleLogin } = useContext(AuthContext);
 
 
     // Getting location system.
@@ -28,6 +28,7 @@ const Login = () => {
     // Taking Value From Login Form Start.
     const singUpHandler = (event) => {
         event.preventDefault();
+        event.stoppropagation();
 
         const form = event.target;
         const email = form.email.value;
@@ -51,8 +52,12 @@ const Login = () => {
 
 
 
+
+
+
     return (
-        <form onSubmit={singUpHandler} className='login-from'>
+        <div className='login-from'>
+            <form onSubmit={singUpHandler}>
             <h1 className='header'>Login</h1>
 
             <div className='email-filed'>
@@ -74,8 +79,9 @@ const Login = () => {
                 <hr /> <p style={{ textAlign: 'center' }}>or</p> <hr />
             </div>
 
-            <button className='google-login'>Continue With Google</button>
         </form>
+            <button onClick={googleLogin.then(()=> navigate(from, {replace: true}).catch(error=> console.log(error)))} className='google-login'>Continue With Google</button>
+        </div>
     );
 };
 
