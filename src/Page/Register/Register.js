@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import './Register.css';
 
@@ -8,7 +8,22 @@ import './Register.css';
 const Register = () => {
 
     // Taking Values From USE CONTEXT>>>
-    const { emailSignUp, setUserNameAndPhoto,googleLogin } = useContext(AuthContext);
+    const { emailSignUp, setUserNameAndPhoto, googleLogin } = useContext(AuthContext);
+
+
+
+    
+    // Getting location system.
+    const location = useLocation();
+
+    // Getting Location.
+    const from = location.state?.from?.pathname || '/'; 
+
+
+    
+    // navigate system 
+    const navigate = useNavigate();
+
 
 
     // Error State For Sign UP System
@@ -65,10 +80,18 @@ const Register = () => {
     // Handler For Taking USER INFO FROM Form End.
 
 
+    // Login with google Start
+    const loginWithGoogle = ()=> 
+    {
+        googleLogin()
+        .then(()=> navigate(from, {replace: true})
+        .catch(error=> console.log(error)))
+    }
+    // Login with google End
 
-    
 
-      
+
+
 
 
     return (
@@ -104,7 +127,7 @@ const Register = () => {
                 </div>
 
             </form>
-            <button onClick={googleLogin.then(()=> navigate(from, {replace: true})).catch(error=> console.log(error)))} className='google-login-btn'>Continue With Google</button>
+             <button onClick={loginWithGoogle} className='google-login-btn'>Continue With Google</button>
         </div>
     );
 };

@@ -49,7 +49,14 @@ const Login = () => {
 
 
 
-
+    // Login with google Start
+    const loginWithGoogle = ()=>
+    {
+        googleLogin()
+        .then(()=> navigate(from, {replace: true})
+        .catch(error=> console.log(error)))
+    }
+    // Login with google End
 
 
 
@@ -80,7 +87,7 @@ const Login = () => {
             </div>
 
         </form>
-            <button onClick={googleLogin.then(()=> navigate(from, {replace: true}).catch(error=> console.log(error)))} className='google-login'>Continue With Google</button>
+            <button onClick={loginWithGoogle} className='google-login'>Continue With Google</button>
         </div>
     );
 };
