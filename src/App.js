@@ -1,17 +1,20 @@
+import { HelmetProvider } from 'react-helmet-async';
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
 import { router } from './Routes/Routes';
 
 function App() {
-
- 
+  // Helmet Context const HelmetProvider = createContext({})
+   const helmetContext = {};
 
 
   return (
-    <div className='app'>
+    <HelmetProvider context={helmetContext}>
+      <div className='app'>
       <RouterProvider
         router={router} />
     </div>
+    </HelmetProvider>
   );
 }
 

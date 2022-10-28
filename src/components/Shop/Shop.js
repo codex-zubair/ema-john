@@ -6,6 +6,7 @@ import Card from '../Card/Card';
 import Craft from '../Craft/Craft';
 import './Shop.css';
 import { useLoaderData } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Shop = () => {
 
@@ -104,6 +105,7 @@ const Shop = () => {
             </div>
 
             <div className='craft-div'>
+                <Helmet><title>Shop</title> </Helmet>
 
                 <Craft selectedList = {selectedList}></Craft>
 

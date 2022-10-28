@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import {  Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import Craft from '../Craft/Craft';
@@ -103,6 +104,7 @@ const Order = () => {
     return (
         user? <div className='order-card'>
         <div>
+            <Helmet><title>Order</title></Helmet>
             {selectedList.map(product => <OrderCard deleteItem={deleteItem} product={product}></OrderCard>)}
         </div>
         <Craft selectedList={selectedList}></Craft>

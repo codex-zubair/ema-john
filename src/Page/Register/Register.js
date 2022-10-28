@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import './Register.css';
@@ -96,6 +97,9 @@ const Register = () => {
 
     return (
         <div className='register-from'>
+
+        <Helmet><title>Register</title></Helmet>
+
             <form onSubmit={singUpHandler}>
                 <h1 className='header'>Sign Up</h1>
 

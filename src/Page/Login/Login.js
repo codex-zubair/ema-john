@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import './Login_register.css';
 
@@ -16,6 +17,8 @@ const Login = () => {
     // Getting Location.
     const from = location.state?.from?.pathname || '/'; 
 
+ 
+
 
     // navigate system 
     const navigate = useNavigate();
@@ -26,7 +29,7 @@ const Login = () => {
 
 
     // Taking Value From Login Form Start.
-    const singUpHandler = (event) => {
+    const loginHandler = (event) => {
         event.preventDefault();
         event.stoppropagation();
 
@@ -36,11 +39,15 @@ const Login = () => {
 
 
 
-
+        // TODO Routes not working properly
         loginByEmail(email, password)
-            .then(() => navigate(from, {replace: true}))
+            .then(() => {})
            
             .catch(error => console.log(error));
+
+
+
+            // navigate(from, {replace: true})
 
 
     }
@@ -53,18 +60,21 @@ const Login = () => {
     const loginWithGoogle = ()=>
     {
         googleLogin()
-        .then(()=> navigate(from, {replace: true})
-        .catch(error=> console.log(error)))
+        .then(()=> navigate(from, {replace: true}))
+        .catch(error=> console.log(error))
     }
     // Login with google End
 
 
 
 
-
     return (
         <div className='login-from'>
-            <form onSubmit={singUpHandler}>
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
+
+            <form onSubmit={loginHandler}>
             <h1 className='header'>Login</h1>
 
             <div className='email-filed'>
