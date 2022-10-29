@@ -98,6 +98,7 @@ const Login = () => {
 
         </form>
             <button onClick={loginWithGoogle} className='google-login'>Continue With Google</button>
+
         </div>
     );
 };
