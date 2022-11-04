@@ -19,7 +19,7 @@ import Register from "../Page/Register/Register";
         },
         {
           path: '/order', element: <Order></Order>, loader: async () => {
-            return fetch('products.json');
+            return fetch('http://localhost:5000/products');
           }
         },
 

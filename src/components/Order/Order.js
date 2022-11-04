@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import {  Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import {  Navigate, useLoaderData, useLocation} from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 import Craft from '../Craft/Craft';
 import OrderCard from '../OrderCard/OrderCard';
@@ -10,7 +10,7 @@ import './Order.css';
 const Order = () => {
 
 
-    const navigate = useNavigate();
+
 
 
     // taking user
@@ -50,7 +50,7 @@ const Order = () => {
         for (const keyID in returnDataFromDB) {
 
             // Finding The product using ID
-            const addedProduct = ((products.find(item => item.id === keyID)))
+            const addedProduct = ((products.find(item => item._id === keyID)))
 
             // Set product Quantity.
             if (addedProduct) {
@@ -76,7 +76,7 @@ const Order = () => {
 
     // !Delete Item start 
     const deleteItem = (id) => {
-        const remainingItem = selectedList.filter(item => item.id !== id);
+        const remainingItem = selectedList.filter(item => item._id !== id);
         setSelectedList(remainingItem);
         // Storing Remaining Item.
         // localStorage.setItem('craft', JSON.stringify(remainingItem));

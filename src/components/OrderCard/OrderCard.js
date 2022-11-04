@@ -10,7 +10,7 @@ import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
 const OrderCard = ({product ,deleteItem}) => {
 
 
-    const { name, price, img, shipping, id } = product;
+    const { name, price, img, shipping, _id } = product;
 
 
 
@@ -38,7 +38,7 @@ const OrderCard = ({product ,deleteItem}) => {
 
 
             <div>
-                <button onClick={() => deleteItem(id)}><FontAwesomeIcon icon={faDeleteLeft} /></button>
+                <button onClick={() => deleteItem(_id)}><FontAwesomeIcon icon={faDeleteLeft} /></button>
             </div>
 
         </div>

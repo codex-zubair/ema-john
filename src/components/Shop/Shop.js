@@ -46,7 +46,7 @@ const Shop = () => {
         for (const keyID in returnDataFromDB) {
 
             // Finding The product using ID
-            const addedProduct = ((products.find(item => item.id === keyID)))
+            const addedProduct = ((products.find(item => item._id === keyID)))
 
             // Set product Quantity.
             if (addedProduct) {
@@ -85,7 +85,7 @@ const Shop = () => {
 
 
         // Calling it From Utilities...
-        storeIDLocalDB(props.id);
+        storeIDLocalDB(props._id);
 
     }
     // !Add item Function End
@@ -100,7 +100,7 @@ const Shop = () => {
         <main className='shop-main'>
             <div className='card-div'>
 
-                {products.map(product => <Card addItemHandler={addItemHandler} key={product.id} product={product}></Card>)}
+                {products.map(product => <Card addItemHandler={addItemHandler} key={product._id} product={product}></Card>)}
 
             </div>
 
