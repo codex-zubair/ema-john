@@ -14,7 +14,7 @@ import Register from "../Page/Register/Register";
 
         {
           path: '/', element: <Shop></Shop>, loader: async () => {
-            return fetch('products.json');
+            return fetch('http://localhost:5000/products');
           }
         },
         {
