@@ -27,6 +27,31 @@
 
 }
 
+.pagination
+{
+    margin: 40px;
+}
+
+.pagination-btn
+{
+    padding: 15px;
+    margin-left: 10px;
+    border: none;
+}
+
+
+.pagination-btn:hover
+{
+    background-color: skyblue;
+}
+
+.selected
+{
+    background-color: skyblue;
+    padding: 15px;
+    margin-left: 10px;
+    border: none;
+}
 
 @media screen and (max-width: 600px) {
 

@@ -8,18 +8,21 @@ import './Shop.css';
 import { useLoaderData } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
+
+// Count system depends on
+// Count || TICK
+// Page
+// Per page
+
+
+
+
+
 const Shop = () => {
 
     //! Loading Product Data Start
-    const products = useLoaderData();
+    const {products,count} = useLoaderData();
     //! Loading Product Data End
-
-
-
-
-
-
-
 
 
     // !Selected List Start
@@ -27,7 +30,21 @@ const Shop = () => {
     // !Selected List End
 
 
+    // Current page
+    const [page, setCurrentPage] = useState(0);
 
+    // Set Size of per page
+    const [size, setSize] = useState(10);
+
+
+    //  total pages 
+    const pages = Math.ceil(count/ size);
+
+
+
+
+    // const per page 
+    const perPage = 10;
 
 
 
@@ -103,6 +120,7 @@ const Shop = () => {
                 {products.map(product => <Card addItemHandler={addItemHandler} key={product._id} product={product}></Card>)}
 
             </div>
+           
 
             <div className='craft-div'>
                 <Helmet><title>Shop</title> </Helmet>
@@ -111,6 +129,9 @@ const Shop = () => {
 
 
             </div>
+            <p className='pagination'>Currently page {page}</p>
+
+            <div className='pagination'>{[...Array(pages).keys()].map(number=> <button onClick={()=> setCurrentPage(number)} className={page === number? 'selected': 'pagination-btn'} key={number}>{number}</button>)}</div>
         </main>
     );
 };
