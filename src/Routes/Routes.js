@@ -13,10 +13,11 @@ import Register from "../Page/Register/Register";
       path: '/', element: <Main></Main>, children: [
 
         {
-          path: '/', element: <Shop></Shop>, loader: async () => {
-            // return fetch('https://ema-john-server-olive.vercel.app/products');
-            return fetch('http://localhost:5000/products');
-          }
+          path: '/', element: <Shop></Shop>
+          // , loader: async () => {
+          //   // return fetch('https://ema-john-server-olive.vercel.app/products');
+          //   return fetch('http://localhost:5000/products');
+          // }
         },
         {
           path: '/order', element: <Order></Order>, loader: async () => {
